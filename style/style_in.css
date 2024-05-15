@@ -1,0 +1,200 @@
+/* Default styles for all screen sizes */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    color: #FFFFFF;
+    background-color: #282B30;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #1e2124;
+    padding: 20px 10px;
+}
+
+.header a {
+    float: left;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.header a:hover {
+    background-color: #282B30;
+    color: black;
+}
+
+.header a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.header-right {
+    float: right;
+}
+
+section {
+    margin-bottom: 60px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: center;
+    }
+
+    .header-right {
+        float: none;
+    }
+
+    .Intro,
+    .About {
+        padding: 10px;
+        margin: 10px auto; /* Adjusted margin for smaller screens */
+    }
+
+    section {
+        margin-bottom: 30px; /* Adjusted margin for smaller screens */
+    }
+
+    .container {
+        flex-direction: column; /* Display cards in a column */
+        align-items: center; /* Center cards vertically */
+    }
+
+    .card {
+        width: calc(100% - 20px); /* Full width for cards */
+        margin: 10px; /* Adjusted margin for cards */
+    }
+}
+
+.Intro {
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.About_Us {
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.Contact {
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.About {
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+    text-align: center;
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 3s ease;
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* New code for the cards */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+}
+
+.card {
+    height: 500px;
+    width: 350px;
+    margin: 50px 10px;
+    box-shadow: 5px 5px 20px #282b30;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+img {
+    height: 300px;
+    width: 350px;
+    border-radius: 3px;
+    transition: transform 0.5s ease;
+}
+
+.cards {
+    height: 200px;
+    width: 350px;
+    padding: 6px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    background: rgba(27, 27, 27, 0.5);
+    color: white;
+    transition: .5s;
+}
+
+.text_cardsh1 {
+    margin: 10px;
+    font-size: 40px;
+}
+
+.text_cardsp {
+    font-size: 20px;
+    margin: 20px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card:hover .cards {
+    height: 220px;
+    bottom: 0;
+    background: black;
+}
+
+.card:hover .text_cardsp {
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover img {
+    transform: scale(1.05) rotate(-3deg);
+}
