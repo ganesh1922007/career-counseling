@@ -1,5 +1,5 @@
 const observer = new IntersectionObserver((entries) => {
-    let delay = 0; // Initial delay
+    let delay = 0;
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
             setTimeout(() => {
