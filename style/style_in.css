@@ -6,7 +6,7 @@ body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
     color: black;
-    background-color: #FFFFFF;
+    background-color: #ff0000;
 }
 
 body.dark {
@@ -26,6 +26,7 @@ body.dark {
 }
 
 .header a {
+    outline: none;
     float: left;
     color: #FFFFFF;
     text-align: center;
@@ -75,12 +76,14 @@ body.dark {
 }
 
 .navbar a {
+    outline: none;
     padding: 1em;
     text-decoration: none;
     display: inline-block;
 }
 
 .navbar .toggle {
+    outline: none;
     position: absolute;
     height: 60px;
     width: 30px;
@@ -96,6 +99,7 @@ body.dark {
 }
 
 .tooltip {
+    outline: none;
     position: absolute;
     top: 80px;
     right: 8px;
@@ -121,6 +125,7 @@ body.dark {
 }
 
 .tooltip::before {
+    outline: none;
     content: ' ';
     width: 15px;
     height: 15px;
@@ -133,10 +138,12 @@ body.dark {
 
 
 .navbar .checkbox {
+    outline: none;
     display: none;
 }
 
 .navbar .label {
+    outline: none;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -168,6 +175,7 @@ input[type="checkbox"]:checked + .label + .circle {
 }
 
 .navbar .hamburger {
+    outline: none;
     position: absolute;
     top: 0px;
     right: 0%;
@@ -183,6 +191,7 @@ input[type="checkbox"]:checked + .label + .circle {
 
 .navbar .hamburger .icon-close {
     display: none;
+    outline: none;
 }
 
 .navbar.open .hamburger .icon-close {
