@@ -34,7 +34,6 @@ h1 {
     border-width: 0;
     border-radius: 50px;
     box-shadow: 0 6px 4px rgba(0,0,0,0.2);
-    transition: border-color 0.3s, box-shadow 0.3s;
     outline: none;
 }
 
@@ -58,7 +57,6 @@ h1 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     padding: 1.5rem;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
     max-width: 100%;
     overflow: hidden;
     position: relative;
@@ -75,18 +73,9 @@ h1 {
     font-size: 1rem;
     color: #555;
     margin: 0;
-    opacity: 0;
-    visibility: hidden; 
-    height: 0;
-    overflow: hidden;
-    transition: opacity 0.3s, visibility 0.3s, height 0.3s ease-in-out;
     padding-top: 0.5rem;
-}
-
-.card:hover p {
-    opacity: 1;
-    visibility: visible;
-    height: auto;
+    visibility: visible; /* Make sure the paragraph is always visible */
+    height: auto; /* Ensure height is auto to fit content */
 }
 
 .card a {
@@ -100,8 +89,7 @@ h1 {
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Remove the scale effect */
     border: 1px solid #004d40; 
 }
 

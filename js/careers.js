@@ -9,35 +9,46 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: 'Mechanical Engineering', description: 'Discover opportunities in mechanical engineering, including machinery design, manufacturing processes, and thermal systems.', url: 'https://drive.google.com/file/d/1Kfjid1IFKUp3AqxwMxxgaXjnyJboxEIJ/view?usp=drive_link' },
         { title: 'Nursing', description: 'Explore careers in nursing, focusing on patient care, medical procedures, and various healthcare settings.', url: 'https://drive.google.com/file/d/1gV_bFUPRu5AeqLbpANFxkx9XXWwySMlj/view?usp=drive_link' },
         { title: 'Data Science', description: 'Explore careers in data science, focusing on data analysis, machine learning, and statistical methods.', url: 'https://drive.google.com/file/d/1OjfB5a0gxcAlU4onI2rNvpAlqwP2lUxL/view?usp=drive_link' },
-        { title: 'Psychology', description: 'Explore careers in psychology, focusing on mental health, behavioral science, and therapeutic practices.', url: 'https://drive.google.com/file/d/1Y8iNCzzxfVmicFe-09wtQnwSD3C3IYld/view?usp=drive_link' }
+        { title: 'Psychology', description: 'Explore careers in psychology, focusing on mental health, behavioral science, and therapeutic practices.', url: 'https://drive.google.com/file/d/1Y8iNCzzxfVmicFe-09wtQnwSD3C3IYld/view?usp=drive_link' },
+        { title: 'Navigating Life After School', description: 'Find resources and guidance for life after school.', url: 'https://dsel.education.gov.in/careers/index.html' }
     ];
 
     const careerOptionsContainer = document.getElementById('career-options');
     const searchBar = document.getElementById('search-bar');
 
+    // Debounce function to limit the rate of function calls
+    const debounce = (func, wait) => {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    };
+
     const renderCards = (filter = '') => {
+        const fragment = document.createDocumentFragment();
+        careerOptions
+            .filter(option => option.title.toLowerCase().includes(filter.toLowerCase()))
+            .forEach(option => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerHTML = `
+                    <a href="${option.url}" target="_blank" rel="noopener noreferrer">
+                        <h2>${option.title}</h2>
+                        <p>${option.description}</p>
+                    </a>
+                `;
+                fragment.appendChild(card);
+            });
         careerOptionsContainer.innerHTML = '';
-        const filteredOptions = careerOptions.filter(option =>
-            option.title.toLowerCase().includes(filter.toLowerCase())
-        );
-        filteredOptions.forEach(option => {
-            const card = document.createElement('div');
-            card.classList.add('card');
-            card.innerHTML = `
-                <a href="${option.url}" target="_blank" rel="noopener noreferrer">
-                    <h2>${option.title}</h2>
-                    <p>${option.description}</p>
-                </a>
-            `;
-            careerOptionsContainer.appendChild(card);
-        });
+        careerOptionsContainer.appendChild(fragment);
     };
 
     // Initial render
     renderCards();
 
-    // Search functionality
-    searchBar.addEventListener('input', (e) => {
+    // Debounced search functionality
+    searchBar.addEventListener('input', debounce((e) => {
         renderCards(e.target.value);
-    });
+    }, 300)); // Adjust debounce delay as needed
 });
