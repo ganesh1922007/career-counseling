@@ -41,12 +41,48 @@ body {
     color: white;
 }
 
+section {
+    margin-bottom: 60px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.links {
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+
+}
+
+li {
+    list-style: none;
+    text-decoration: none;
+}
+
+a {
+    outline: none; 
+    text-decoration : none;
+}
 
 @media screen and (max-width: 768px) {
     .header a {
         float: none;
         display: block;
         text-align: center;
+    }
+
+    .section {
+        margin-bottom: 30px; /* Adjusted margin for smaller screens */
+    }
+
+    .links {
+        padding: 10px;
+        margin: 10px auto; /* Adjusted margin for smaller screens */
     }
 }
 
